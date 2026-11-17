@@ -60,7 +60,6 @@ button:hover {
   gap: 16px;
 }
 
-/* Carte stylisée : bordure, marge intérieure, coins arrondis */
 .book-card {
   display: flex;
   flex-direction: column;

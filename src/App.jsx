@@ -2,7 +2,6 @@ import { useState } from 'react'
 import BookCard from './components/BookCard'
 
 function App() {
-  // État books : la liste des livres (au moins 4)
   const [books, setBooks] = useState([
     { id: 1, titre: "L'Aventure ambiguë", auteur: 'Cheikh Hamidou Kane', estDisponible: true },
     { id: 2, titre: 'Une si longue lettre', auteur: 'Mariama Bâ', estDisponible: false },
@@ -10,14 +9,11 @@ function App() {
     { id: 4, titre: "L'Enfant noir", auteur: 'Camara Laye', estDisponible: true },
   ])
 
-  // États des champs contrôlés du formulaire
   const [titre, setTitre] = useState('')
   const [auteur, setAuteur] = useState('')
 
-  // Nombre de livres disponibles, recalculé à chaque rendu (temps réel)
   const nbDisponibles = books.filter((book) => book.estDisponible).length
 
-  // Inverse la disponibilité du livre cliqué
   const onClickEmprunt = (bookId) => {
     setBooks(
       books.map((book) =>
@@ -26,17 +22,14 @@ function App() {
     )
   }
 
-  // Soumission du formulaire d'ajout
   const handleSubmit = (e) => {
-    e.preventDefault() // empêche le rechargement de la page
+    e.preventDefault()
 
-    // Vérifie que les champs ne sont pas vides
     if (titre.trim() === '' || auteur.trim() === '') {
       alert('Veuillez remplir le titre et l\'auteur.')
       return
     }
 
-    // Ajoute le nouveau livre (disponible par défaut)
     const nouveauLivre = {
       id: Date.now(),
       titre: titre.trim(),
@@ -45,7 +38,6 @@ function App() {
     }
     setBooks([...books, nouveauLivre])
 
-    // Vide les champs de saisie
     setTitre('')
     setAuteur('')
   }
@@ -57,7 +49,6 @@ function App() {
         Livres disponibles : {nbDisponibles} / {books.length}
       </h2>
 
-      {/* Formulaire d'ajout */}
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
@@ -74,7 +65,6 @@ function App() {
         <button type="submit">Ajouter</button>
       </form>
 
-      {/* Affichage de la liste avec .map() et key */}
       <div className="book-list">
         {books.map((book) => (
           <BookCard
