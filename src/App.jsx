@@ -44,10 +44,8 @@ function App() {
 
   return (
     <div className="app">
-      <h1>📚 Bibliothèque universitaire</h1>
-      <h2>
-        Livres disponibles : {nbDisponibles} / {books.length}
-      </h2>
+      <h1>📚 Livres disponibles : {nbDisponibles}</h1>
+      <p className="sous-titre">Bibliothèque universitaire — {books.length} livres au total</p>
 
       <form onSubmit={handleSubmit} className="form">
         <input

@@ -19,8 +19,8 @@ h1 {
   margin-bottom: 4px;
 }
 
-h2 {
-  font-weight: normal;
+.sous-titre {
+  margin-top: 0;
   color: #555;
 }
 
